@@ -26,7 +26,7 @@
   --surface-container-low-light: hsl(278, 44%, 96%);
   --surface-container-light: hsl(276, 38%, 95%);
   --surface-bright-light: hsl(293, 100%, 98%);
-  --primary-light: hsl(256, 34%, 48%);
+  --primary-light: hsl(115, 34%, 48%);
   --on-primary-light: hsl(0, 0%, 100%);
   --outline-light: hsl(270, 4%, 47%);
   --outline-variant-light: hsl(270, 11%, 79%);
@@ -182,6 +182,10 @@ textarea {
 li,
 ul {
   text-decoration: none;
+}
+
+li {
+  list-style: none;
 }
 
 input,
@@ -364,6 +368,9 @@ body{
   object-fit: cover;
 }
 
+.tab-content:not(.active) {display: none;}
+
+.section-title { margin-block-end: 16px; }
 
 
 
@@ -526,18 +533,23 @@ body{
   #HERO
 \*-----------------------------------*/
 .hero {
-  padding-block-start: calc(var(--top-bar-height) + 24px);
+  padding-block-start: var(--top-bar-height);
 }
 
 .hero .container {
   display: grid;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
 }
 
 .hero-banner {
-  width: 240px;
+  position: relative;
+  top: 20px;
+  width: 200px;
+  height: 200px;
   border-radius: var(--shape-corner-circle);
+  z-index: 30;
+  border: 4px solid var(--background);
 }
 
 .hero-content { max-width: 500px; }
@@ -553,6 +565,11 @@ body{
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.banner-img {
+  width: 100%;
+  position: absolute;
 }
 
 
@@ -613,6 +630,38 @@ body{
   #RESUME
 \*-----------------------------------*/
 
+.resume-tab .list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-block-end: 28px;
+}
+
+.resume-card {
+  display: grid;
+  gap: 4px;
+}
+
+.resume-card .card-subtitle { color: var(--primary); }
+
+.resume-card .card-text { color: var(--on-surface-variant); }
+
+.resume-bottom-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.resume-bottom-item {
+  background-color: var(--surface-container);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: var(--shape-corner-small);
+}
+
+.resume-bottom-item .icon { height: 28px; }
 
 
 
